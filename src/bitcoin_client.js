@@ -13,9 +13,9 @@ var client = new bitcoin.Client({
     timeout: 240000
 });
 
-assert(client.opts.host);
-assert(client.opts.user);
-assert(client.opts.pass);
+assert(client.rpc.opts.host);
+assert(client.rpc.opts.user);
+assert(client.rpc.opts.pass);
 
 function doGetTransactions(txIds, callback) {
     if (txIds.length === 0)
