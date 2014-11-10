@@ -4,8 +4,7 @@ var async = require('async');
 var pg = require('pg');
 
 var databaseUrl = process.env.DATABASE_URL;
-
-console.assert(!databaseUrl);
+assert(databaseUrl);
 
 console.log('DATABASE_URL: ', databaseUrl);
 
