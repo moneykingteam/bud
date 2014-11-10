@@ -7,15 +7,15 @@ var lib = require('./lib');
 
 var client = new bitcoin.Client({
     host: process.env.BITCOIND_HOST,
-    port: process.env.BITCOIND_PORT || 25006,
+    port: process.env.BITCOIND_PORT || 8332,
     user: process.env.BITCOIND_USER,
     pass: process.env.BITCOIND_PASS,
     timeout: 240000
 });
 
-assert(client.host);
-assert(client.user);
-assert(client.pass);
+assert(client.opts.host);
+assert(client.opts.user);
+assert(client.opts.pass);
 
 function doGetTransactions(txIds, callback) {
     if (txIds.length === 0)
