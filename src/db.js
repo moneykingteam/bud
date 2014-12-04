@@ -22,7 +22,7 @@ function refreshView() {
             console.log('leaderboard refreshed');
         }
 
-        setTimeout(refreshView, 5 * 60 * 1000);
+        setTimeout(refreshView, 10 * 60 * 1000);
     });
 
 }

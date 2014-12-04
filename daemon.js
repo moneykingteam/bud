@@ -10,7 +10,7 @@ var client;
 // Mapping of deposit_address -> user_id
 var depositAddresses = {};
 
-var count = process.env.GENERATE_ADDRESSES || 100; // how many addresses to watch
+var count = process.env.GENERATE_ADDRESSES ? parseInt(process.env.GENERATE_ADDRESSES) : 100; // how many addresses to watch
 
 console.log('Generating ', count, ' addresses');
 
