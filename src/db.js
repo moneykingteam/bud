@@ -144,7 +144,7 @@ exports.addDeposit = function(userId, txid, amount, callback) {
 
     assert(typeof amount === 'number');
    // Amount is in bitcoins...
-    amount = Math.floor(amount * 1e8);
+    amount = Math.round(amount * 1e8);
 
 
     getClient(function(client, callback) {
