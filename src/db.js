@@ -15,7 +15,7 @@ pg.types.setTypeParser(20, function(val) { // parse int8 as an integer
 
 function refreshView() {
 
-    query('REFRESH MATERIALIZED VIEW leaderboard;', function(err) {
+    query('REFRESH MATERIALIZED VIEW CONCURRENTLY leaderboard;', function(err) {
         if (err) {
             console.error('[INTERNAL_ERROR] unable to refresh leaderboard got: ', err);
         } else {
