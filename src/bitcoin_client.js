@@ -12,8 +12,8 @@ var client = new bitcoin.Client({
     pass: process.env.BITCOIND_PASS,
     timeout: 240000,
     ssl: true,
-    sslStrict: true,
-    sslCa: new Buffer(process.env.BITCOIND_CERT)
+    sslStrict: !process.env.BITCOIND_UNSAFE,
+    sslCa: new Buffer('-----BEGIN CERTIFICATE-----\n' + process.env.BITCOIND_CERT + '\n-----END CERTIFICATE-----')
 });
 
 assert(client.rpc.opts.host);
