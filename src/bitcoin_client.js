@@ -1,4 +1,3 @@
-var async = require('async');
 var assert = require('better-assert');
 var bitcoin = require('bitcoin');
 

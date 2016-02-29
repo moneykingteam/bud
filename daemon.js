@@ -3,23 +3,15 @@ var async = require('async');
 var bc = require('./src/bitcoin_client');
 var db = require('./src/db');
 var lib = require('./src/lib');
+var fs = require('fs')
 
 
 var client;
 
 // Mapping of deposit_address -> user_id
-var depositAddresses = {};
+var depositAddresses = JSON.parse(fs.readFileSync('.addresses.json', 'utf8'));
+assert(depositAddresses);
 
-var count = process.env.GENERATE_ADDRESSES ? parseInt(process.env.GENERATE_ADDRESSES) : 100; // how many addresses to watch
-
-console.log('Generating ', count, ' addresses');
-
-for (var i = 1; i <= count; ++i) {
-    var address = lib.deriveAddress(i);
-    depositAddresses[address] = i;
-}
-
-console.log('Finished generating addresses', depositAddresses);
 
 startBlockLoop();
 

@@ -90,6 +90,6 @@ if (!derivedPubKey)
 var hdNode = bitcoinjs.HDNode.fromBase58(derivedPubKey);
 
 exports.deriveAddress = function(index) {
-    return hdNode.derive(index).pubKey.getAddress().toString();
+    return hdNode.derive(index).getAddress().toString();
 };
 
