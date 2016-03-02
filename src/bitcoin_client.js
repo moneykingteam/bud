@@ -78,7 +78,8 @@ function transactionsAddresses(transactions) {
             }
 
             assert(out.value >= 0);
-            addressToAmount[addresses[0]] = out.value;
+            var oldAmount = addressToAmount[addresses[0]] || 0;
+            addressToAmount[addresses[0]] = oldAmount + out.value;
         });
 
         return addressToAmount;
