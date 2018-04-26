@@ -48,8 +48,6 @@ function processTransactionIds(txids, callback) {
                         db.addDeposit(userId, txid, usersToAmounts[userId], callback);
                     });
                 });
-
-
             }
         });
 
@@ -89,7 +87,7 @@ function scheduleBlockLoop() {
 function blockLoop() {
     bc.getBlockCount(function(err, num) {
         if (err) {
-            console.error('Unable to get block count');
+            console.error('Unable to get block count', err);
             return scheduleBlockLoop();
         }
 
@@ -133,6 +131,7 @@ function blockLoop() {
 
                     ++lastBlockCount;
                     lastBlockHash = hash;
+                    // console.log("BlockCount", lastBlockCount);
 
 
                     db.insertBlock(lastBlockCount, lastBlockHash, function(err) {
@@ -150,7 +149,7 @@ function blockLoop() {
 }
 
 function processBlock(hash, callback) {
-    console.log('Processing block: ', hash);
+   console.log('Processing block: ', hash);
 
     var start = new Date();
 
@@ -172,8 +171,5 @@ function processBlock(hash, callback) {
             callback(err)
         });
     });
-
 }
-
-
 

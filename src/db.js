@@ -3,7 +3,7 @@ var assert = require('better-assert');
 var async = require('async');
 var pg = require('pg');
 
-var databaseUrl = process.env.DATABASE_URL;
+var databaseUrl = process.env.DATABASE_URL || 'postgres://mybabuser:MyBab2014@localhost/mybabdb';
 assert(databaseUrl);
 
 console.log('DATABASE_URL: ', databaseUrl);

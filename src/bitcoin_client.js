@@ -5,10 +5,10 @@ var bitcoin = require('bitcoin');
 var lib = require('./lib');
 
 var client = new bitcoin.Client({
-    host: process.env.BITCOIND_HOST,
+    host: process.env.BITCOIND_HOST || 'localhost',
     port: process.env.BITCOIND_PORT || 8332,
-    user: process.env.BITCOIND_USER,
-    pass: process.env.BITCOIND_PASS,
+    user: process.env.BITCOIND_USER || 'mydo',
+    pass: process.env.BITCOIND_PASS || 'mydo1986',
     timeout: 240000
 });
 

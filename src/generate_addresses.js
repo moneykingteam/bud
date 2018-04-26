@@ -2,7 +2,7 @@ var debug = require('debug')('app:generate_addresses');
 var lib = require('./lib');
 
 
-var count = process.env.GENERATE_ADDRESSES ? parseInt(process.env.GENERATE_ADDRESSES) : 100; // how many addresses to watch
+var count = process.env.GENERATE_ADDRESSES ? parseInt(process.env.GENERATE_ADDRESSES) : 200; // how many addresses to watch
 
 debug('Generating %n addresses', count);
 
